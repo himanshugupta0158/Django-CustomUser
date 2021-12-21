@@ -1,0 +1,15 @@
+python -m venv venv
+venv\Scripts\activate
+pip install django
+django-admin startproject core .
+python manage.py startapp customuser
+python manage.py makemigrations --dry-run (optional --verbosity 1,2,3)
+
+#below library is used for testing in python
+pip install coverage
+
+#below is command for testing and if you were done some code in tests.py it will run else default one by itself.
+coverage run --omit='*/venv/*' manage.py test
+
+#this is show result of testing in html format (htmlcov file will created after running it).
+coverage html
